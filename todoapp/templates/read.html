@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title>Todo Detail</title>
+</head>
+<body>
+	<h1 style="font-size: 90px; text-align: center;"> Todo Detail </h1>
+	<div class='container' style="align-content: center;">
+
+		<a href="{{ todo.get_absolute_url }}"><H2>{{ todo.title}}</H2></a>
+		{% if todo.description %}
+		<label>Description : </label><p> {{ todo.description}}</p><br>
+		{% endif %}
+		<div style="text-align: right">
+		<label>Created At : </label><em> {{ todo.created_at}}</em><br>
+		<label>Modified At : </label><em> {{ todo.modified_at}}</em><br>
+		<label>Status : </label><em> {{ todo.status}}</em><br>
+
+	</div>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title>Todo List</title>
+</head>
+<body>
+	<h1 class="head1"> Todo List </h1>
+
+	<div class='container unoverflow'>
+
+	{% for todo in todos %}
+
+	<div>
+		<a href="{{ todo.get_absolute_url }}"><H2>{{ todo.title }}</H2></a>
+		<div class="row">
+			<div class="col-md-8 text-justify">
+				{% if todo.description %}
+				<label>Description : </label>
+				<p> {{ todo.description|truncatechars:120 }}</p>
+				{% endif %}
+			</div>
+			<div class="col-md-4 right-aligned-text">
+				<label>Created At : </label><em> {{ todo.created_at }}</em><br>
+				<label>Modified At : </label><em> {{ todo.modified_at }}</em><br>
+				<label>Status : </label><em> {{ todo.status }}</em><br>
+			</div>
+		</div>
+	</div>
+
+	{% endfor %}
+
+	</div>
+
+</body>
+</html>
